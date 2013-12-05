@@ -1,8 +1,7 @@
-// First the Card class
-/*
- * As asked many many times here is a Card class
- * and a Deck class
-*/		
+/**
+	A Card class for the Card game.	
+	@author Martha Wales 
+*/
 public class Card {
     // Constants     
     // suits
@@ -23,33 +22,35 @@ public class Card {
                               
    private int rank;  // The rank of this card, from 1 to 13.
                              
-  
-     	
-	// constructor
-   Card(int rank, int suit) {
+  /**
+		Constructor to create Cards and shuffle them..
+*/	      	
+   Card(int rank, int suit)
+    {
       this.rank = rank;
       this.suit = suit;
    }
 	
-	
-	// accessors
-   int getSuit() {
+   /**
+    Returns card value.
+    @return card rank as a value.
+   */
+   public int getSuit() 
+   {
       return suit;
-            
-   }
-   int getValue() {
+    }
+    
+   /**
+    Returns card value.
+    @return card rank as a value.
+   */   public int getValue() 
+   {
       return rank;
    }
-	
-	// returns the card definition
-	//public String toString() {
-	//	return "Card Value: " + rank + " Suit: " + suit;
-   
-	      
-   
+  
     /**
-   * Returns a description of the suit of this card.
-   * @return the suit value of the card as a string.
+    Returns a description of the suit of this card.
+    @return the suit value of the card as a string.
    */
    public String getSuitAsString() 
    {
@@ -57,26 +58,26 @@ public class Card {
             // (If the card's suit is invalid, "??" is returned.)
       switch ( suit ) {
          case 0:   
-            return "Spades";
+            return "s";
          case 1:   
-            return "Hearts";
+            return "h";
          case 2:  
-            return "Diamonds";
+            return "d";
          case 3:    
-            return "Clubs";
+            return "c";
          default:       
             return "Invalid";
       }
    }
    /**
-   * Returns a description of the rank of this card.
-   * @return the rank value of the card as a string.
+    Returns a description of the rank of this card.
+    @return rank the rank value of the card as a string.
    */
    public String getRankAsString() 
    {
       switch ( rank ) {
          case 1:   
-            return "Ace";
+            return "ace";
          case 2:   
             return "2";
          case 3:   
@@ -96,25 +97,41 @@ public class Card {
          case 10:  
             return "10";
          case 11:  
-            return "Jack";
+            return "jack";
          case 12:  
-            return "Queen";
+            return "queen";
          case 13:  
-            return "King";
+            return "king";
          default:  
             return "??";
       }
+      
    }
+         
+      
+
    /**
    * Returns a description of this card.
-   * @return the name of the card.
+   * @return name the name of the card.
    */
 
    public String toString() 
    {
       return getRankAsString() + " of " + getSuitAsString();
    }
-    
+  
+  
+   /**
+   * Returns a description of this card.
+   * @return filename of image of the card.
+   */
+
+   public String toName() 
+   {
+      return getRankAsString()+ getSuitAsString()+".jpg";
+   }
+  
+       
    /**
    * Compares two cards to determine if they have the same value.
    * @param card the other card
